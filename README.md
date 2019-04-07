@@ -2,7 +2,7 @@
 Just a test of might of C language. No GL used. Soon this will be Veritas 3D Game engine. Based on olcConsoleGameEngine by JavidX9
 
 # Usage and launch
-To launch the example all it needs is VS2015. Compile with x64 settings and launch
+To launch the example all it needs is VS2015. Compile with x64 settings and launch. WARNING: in project options compile language must be set to C
 
 # Maze3D: 
 To launch the game directly, without VS, just go x64, there is console app 5, which is an exe file.
