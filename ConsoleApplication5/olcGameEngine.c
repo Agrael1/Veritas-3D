@@ -1,9 +1,8 @@
+#include "Exception.h"
 #include "olcGameEngine.h"
 #include <time.h>
 #include <stdio.h>
 #include "Class.h"
-
-
 
 // Internal functions. Paste functions here:
 // Clipping wrap
@@ -136,7 +135,7 @@ DWORD _stdcall GameThread(void* _self)
 	return 0;
 }
 // Constructs console with input params
-int ConstructConsole(void* _self, int width, int heigh, int fontw, int fonth)
+bool ConstructConsole(void* _self, int width, int heigh, int fontw, int fonth)
 {
 	struct c_class* this = _self;
 	this->m_nScreenHeight = heigh;
@@ -155,10 +154,12 @@ int ConstructConsole(void* _self, int width, int heigh, int fontw, int fonth)
 	cfi.dwFontSize.Y = fonth;
 	cfi.FontFamily = FF_DONTCARE;
 	cfi.FontWeight = FW_NORMAL;
-	wcscpy(cfi.FaceName, L"Consolas");
+	wcscpy_s(cfi.FaceName, 9, L"Consolas");
 
 	if (!SetCurrentConsoleFontEx(this->m_hConsole, bMaxWindow, &cfi))
-		return -1;
+	{
+		throw( new(Exception, __LINE__, __FILE__)); 
+	}
 
 	COORD coordLargest = GetLargestConsoleWindowSize(this->m_hConsole);
 	if (this->m_nScreenHeight > coordLargest.Y)
@@ -188,8 +189,8 @@ int ConstructConsole(void* _self, int width, int heigh, int fontw, int fonth)
 
 	// For mouse to be captured after leaving the screen
 	SetCapture(consoleWindow);
-
-	return 0;
+	
+	return 1;
 }
 // Start rouitine, assembles a thread and gives it a handle
 void Start(void* _self)

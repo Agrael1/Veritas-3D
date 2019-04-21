@@ -151,25 +151,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BitField.c" />
     <ClCompile Include="BitStack.c" />
     <ClCompile Include="Class.c" />
+    <ClCompile Include="Exception.c" />
     <ClCompile Include="Frame.c" />
     <ClCompile Include="Gamedemo.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="MazeGen.c" />
     <ClCompile Include="olcGameEngine.c" />
+    <ClCompile Include="StringStream.c" />
     <ClCompile Include="VeritasEngine.c" />
+    <ClCompile Include="Window.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BitField.h" />
     <ClInclude Include="Class.h" />
     <ClInclude Include="EngineCommons.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameDemo.h" />
     <ClInclude Include="BitStack.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="New.h" />
     <ClInclude Include="olcGameEngine.h" />
+    <ClInclude Include="StringStream.h" />
     <ClInclude Include="VeritasEngine.h" />
+    <ClInclude Include="Window.h" />
+    <ClInclude Include="WinSetup.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -37,16 +37,16 @@ typedef struct
 	// Internal class functions
 
 		// Constructs console with input params:
-		// _self - class pointer input
-		// width, height - width and height of a console
-		// fontw, fonth - width and height of the font on screen
-		int(*ConstructConsole)(void* _self, int width, int heigh, int fontw, int fonth);
+		// @ _self - class pointer input
+		// @ width, height - width and height of a console
+		// @ fontw, fonth - width and height of the font on screen
+		bool(*ConstructConsole)(void* _self, int width, int heigh, int fontw, int fonth);
 		// Start routine
-		// *_self - class pointer input
+		// @ *_self - class pointer input
 		void(*Start)(void* _self);
 		// Prints character on the screen
-		// *_self - Game engine class pointer
-		// x, y - coordinates of input charachter
+		// @ _self - Game engine class pointer
+		// @ x, y - coordinates of input charachter
 		void(*PrintChar)(void* _self, int x, int y, wchar_t character, short color);
 
 		int (*PrintStringW)(_Inout_updates_(m_buffscreen) void* _self, int x, int y, _In_reads_(length) const wchar_t *strptr, unsigned int length, short color);
